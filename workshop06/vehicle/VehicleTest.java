@@ -8,16 +8,16 @@ public class VehicleTest {
 		
 		System.out.println("50L 주유 후");
 		car.addOil(50);
-		System.out.println(car.toString());
+		System.out.println(car);
 		System.out.println("50Km 주행 후");
 		car.moving(50);
-		System.out.println(car.toString());
+		System.out.println(car);
 		System.out.println("100kg 적재 후");
 		car.addWeight(100);
-		System.out.println(car.toString());
+		System.out.println(car);
 		System.out.println("30Km 주행 후");
 		car.moving(30);
-		System.out.println(car.toString());
+		System.out.println(car);
 		
 		
 		
