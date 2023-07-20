@@ -3,12 +3,22 @@ package vehicle;
 public class Car extends Vehicle {
 	private  double restOil;
 	private  int curWeight;
-	public Car() {
-	}
-	public Car(int maxWeight, double oilTankSize, double efficiency) {
-		super(maxWeight,  oilTankSize, efficiency);
-	}
+
+
 	
+	public Car() {
+		// TODO Auto-generated constructor stub
+	}
+
+	
+	
+	public Car(int maxWeight, double oilTankSize, double efficiency) {
+		super(maxWeight, oilTankSize, efficiency);
+		// TODO Auto-generated constructor stub
+	}
+
+
+
 	public void addOil(int oil) {
 		if(oil+ this.getRestOil() < this.getOilTankSize()){
 			restOil+=oil;
@@ -32,7 +42,7 @@ public class Car extends Vehicle {
 	
 		
 	public double getRestOil() {
-		return restOil;
+		return this.restOil;
 	}
 	public void setRestOil(double restOil) {
 		this.restOil = restOil;
