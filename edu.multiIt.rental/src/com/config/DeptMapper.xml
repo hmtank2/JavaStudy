@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="DeptMapper">
+	<select id="findAllAvailable" resultType="ClientDTO">
+		select *
+		from rental_reservation
+	</select>
+	<select id="findAllAvailable2" resultType="ClientDTO">
+		select place_no ,place_nm
+		from rental_place
+	</select>
+	<select id="findByPlaceNumber" resultType="ClientDTO" parameterType ="int">
+		select res_date 
+		from rental_reservation
+		where place_no = #{place_no}
+	</select>
+	<select id="getMaxResDate" resultType="int" >
+		SELECT MAX(RES_DATE) as maxnum 
+		FROM RENTAL_RESERVATION
+		
+	</select>
+	<insert id="addDept" parameterType = "ClientDTO">
+		insert into rental_reservation(res_num, res_date,client_no,place_no,end_use)
+		values (#{res_num},#{res_date},#{client_no},#{place_no},#{end_use})
+	</insert>
+
+
+
+	
+	<select id="findAllPage" resultType="ClientDTO">
+		select deptno, dname, loc
+		from dept
+		order by deptno
+	</select>
+	<select id="findAll" resultType="ClientDTO">
+		select deptno, dname, loc
+		from dept
+	</select>
+	<select id="findByDeptno" resultType="ClientDTO"
+		parameterType="int">
+		select deptno , substr(dname,0) as dname, loc
+		from dept
+		where deptno = #{deptno}
+	</select>
+	<select id="findByDeptnoAndDname" resultType="ClientDTO"
+		parameterType="ClientDTO">
+		select deptno, dname, loc
+		from dept
+		where deptno = #{deptno} or dname = #{dname}
+	</select>
+	<select id="findByDeptnoAndDnameMap" resultType="ClientDTO"
+		parameterType="Hashmap">
+		select deptno, dname, loc
+		from dept
+		where deptno = #{xxx} or dname = #{yyy}
+	</select>
+
+</mapper>
